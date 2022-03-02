@@ -10,9 +10,9 @@ public class ActorJDBC {
 	@Autowired
 	JdbcTemplate conexion;
 	
-	public void AgregarActor (int actorid, Actores nuevo_actor) {
+	public void AgregarActor ( Actores nuevo_actor) {
 	String sql="insert into actores (nombre_completo) values = ?";
-	conexion.update(sql, nuevo_actor.getNombre_completo(), actorid);
+	conexion.update(sql, nuevo_actor.getNombre_completo());
 			
 	
 	}
