@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import mx.tecnm.piedad.dao.ActorJDBC;
-import mx.tecnm.piedad.dao.planJDBC;
 import mx.tecnm.piedad.models.Actores;
-import mx.tecnm.piedad.models.Plan;
-
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/api/actores")
+=======
+@RequestMapping("/api")
+>>>>>>> 9c16af2f7084d6d8178440c903c36196df8296f3
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 
 
@@ -26,6 +27,7 @@ public class ActorWS {
 	@Autowired
 	ActorJDBC repo;
 	
+<<<<<<< HEAD
 	@PostMapping()
 	 public ResponseEntity<?> AgregarActor(@RequestBody Actores nuevo_actor){
     	try {
@@ -40,4 +42,26 @@ public class ActorWS {
 	
 	
 	
+=======
+	
+			@PostMapping("/actores")
+			 public ResponseEntity<?> AgregarActor(@RequestBody Actores nuevo_actor){
+		    	try {
+		    	repo.AgregarActor(nuevo_actor);
+		    	return new ResponseEntity<>( HttpStatus.CREATED);
+		    } catch (DataAccessException e) {
+		    	System.out.println(e.getMessage());
+		    	return new ResponseEntity<>(HttpStatus.CONFLICT);
+		    	
+		    	}
+		    }
+			
+
+>>>>>>> 9c16af2f7084d6d8178440c903c36196df8296f3
 }
+
+			
+	
+	
+
+
