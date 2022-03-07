@@ -1,5 +1,7 @@
 package mx.tecnm.piedad.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,12 +13,12 @@ public class CategoriaJDBC {
 	private JdbcTemplate conexion;
 	
 	public void AgrgarCategoria(Categorias nueva_categoria) {
-			String sql="INSERT INTO categorias (clasificacion) VALUES  (?)";
-			conexion.update(sql, nueva_categoria.getClasificacion());
+			String sql="INSERT INTO categorias (clasificacion, descripcion) VALUES  (?,?)";
+			conexion.update(sql, nueva_categoria.getClasificacion(), nueva_categoria.getDescripcion());
 	}
 	public void ModificaCategoria(Categorias categoria, int categoriaid) {
-		String sql="UPDATE categorias SET nombre_completo= ? WHERE id= ? ";
-		conexion.update(sql, categoria.getClasificacion(), categoriaid );
+		String sql="UPDATE categorias SET clasificacion= ?, descripcion= ? WHERE id= ? ";
+		conexion.update(sql, categoria.getClasificacion(), categoria.getDescripcion(), categoriaid );
 		}
 		
 		public void EliminaCategoria(int categoriaid) {
@@ -24,9 +26,14 @@ public class CategoriaJDBC {
 		conexion.update(sql, categoriaid);
 		}
 		
-		public void ConsultaCategoria(int categoriaid) {
+		public Categorias ConsultaCategoria(int categoriaid) {
 		String sql="SELECT * FROM categorias WHERE id= ?";
-		conexion.update(sql, categoriaid);
+		return conexion.queryForObject(sql, new CategoriasRM(), categoriaid);
+		}
+		
+		public List<Categorias> catalogoCategoria(){
+		String sql="SELECT * FROM categorias";
+		return conexion.query(sql, new CategoriasRM());
 		}
 	
 }

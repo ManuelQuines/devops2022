@@ -14,7 +14,7 @@ public class CategoriasRM implements RowMapper<Categorias>{
 		
 		categorias.setId(rs.getInt("id"));
 		categorias.setClasificacion(rs.getString("clasificacion"));
-		
+		categorias.setDescripcion(rs.getString("descripcion"));
 
 		return categorias;
 }

@@ -1,5 +1,7 @@
 package mx.tecnm.piedad.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -27,9 +29,9 @@ public class ActorJDBC {
 	conexion.update(sql, actorid);
 	}
 	
-	public void ConsultaActor(int actorid) {
+	public List<Actores> CatalogoActores() {
 	String sql="SELECT * FROM actores WHERE id= ?";
-	conexion.update(sql, actorid);
+	return conexion.query(sql, new ActorRM());
 	}
 	
 	
