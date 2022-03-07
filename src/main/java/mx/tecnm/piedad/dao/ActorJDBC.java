@@ -30,7 +30,7 @@ public class ActorJDBC {
 	}
 	
 	public List<Actores> CatalogoActores() {
-	String sql="SELECT * FROM actores WHERE id= ?";
+	String sql="SELECT * FROM actores";
 	return conexion.query(sql, new ActorRM());
 	}
 	
