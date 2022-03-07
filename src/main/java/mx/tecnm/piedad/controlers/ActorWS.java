@@ -17,7 +17,7 @@ import mx.tecnm.piedad.models.Actores;
 import mx.tecnm.piedad.models.Plan;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/actores")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.PATCH})
 
 
@@ -27,7 +27,7 @@ public class ActorWS {
 	ActorJDBC repo;
 	
 	@PostMapping()
-	 public ResponseEntity<?> agregarActor(@RequestBody Actores nuevo_actor){
+	 public ResponseEntity<?> AgregarActor(@RequestBody Actores nuevo_actor){
     	try {
     	repo.AgregarActor(nuevo_actor);
     	return new ResponseEntity<>( HttpStatus.CREATED);
@@ -37,6 +37,7 @@ public class ActorWS {
     	
     	}
     }
+	
 	
 	
 }
