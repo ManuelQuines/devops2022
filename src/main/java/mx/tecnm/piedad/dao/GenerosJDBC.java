@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import mx.tecnm.piedad.models.Generos;
 
 
-//jdbcsxcz
+
 @Repository
 public class GenerosJDBC {
 	
