@@ -13,16 +13,16 @@ public class CategoriaJDBC {
 	private JdbcTemplate conexion;
 	
 	public void AgrgarCategoria(Categorias nueva_categoria) {
-			String sql="INSERT INTO categorias (clasificacion, descripcion) VALUES  (?,?)";
+			String sql="INSERT INTO categorias (clasificacion, descripcion, creado) VALUES  (?,?, Now())";
 			conexion.update(sql, nueva_categoria.getClasificacion(), nueva_categoria.getDescripcion());
 	}
 	public void ModificaCategoria(Categorias categoria, int categoriaid) {
-		String sql="UPDATE categorias SET clasificacion= ?, descripcion= ? WHERE id= ? ";
+		String sql="UPDATE categorias SET clasificacion= ?, descripcion= ?, modificado = NOW() WHERE id= ? ";
 		conexion.update(sql, categoria.getClasificacion(), categoria.getDescripcion(), categoriaid );
 		}
 		
 		public void EliminaCategoria(int categoriaid) {
-		String sql="DELETE FROM categorias WHERE id= ?";
+		String sql="UPDATE categorias SET activo = 0, eliminado = NOW() WHERE id = ?";
 		conexion.update(sql, categoriaid);
 		}
 		
@@ -32,7 +32,7 @@ public class CategoriaJDBC {
 		}
 		
 		public List<Categorias> catalogoCategoria(){
-		String sql="SELECT * FROM categorias";
+		String sql="SELECT * FROM categorias WHERE activo= 1";
 		return conexion.query(sql, new CategoriasRM());
 		}
 	
