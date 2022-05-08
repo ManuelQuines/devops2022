@@ -22,5 +22,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Construir Maven
       run: mvn -B package --file pom.xml
+    - name: Publicar
+      run: mvn --batch-mode deploy
