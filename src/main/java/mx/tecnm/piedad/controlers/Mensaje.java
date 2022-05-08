@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import mx.tecnm.piedad.dao.UsuariosJDBC;
-//hola
+//hola-adios
 @RestController
 @RequestMapping("/api")
 public class Mensaje {
