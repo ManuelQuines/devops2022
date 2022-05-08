@@ -74,7 +74,7 @@
    <repository>
      <id>github</id>
      <name>GitHub ManuelQuines Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/ManuelQuines/devops2022</url>
+     <url>https://github.com/ManuelQuines/devops2022/tree/master/.github/workflows</url>
    </repository>
 </distributionManagement>
 
