@@ -26,3 +26,5 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Publicar
       run: mvn --batch-mode deploy
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
