@@ -70,12 +70,25 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-   <repository>
-     <id>github</id>
-     <name>GitHub ManuelQuines Apache Maven Packages</name>
-     <url>https://maven.pkg.github.com/ManuelQuines/devops2022/.github/workflows</url>
-   </repository>
-</distributionManagement>
+	
+	
+  <profiles>
+    <profile>
+      <id>github</id>
+      <activation>
+        <property>
+          <name>useGitHubPackages</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <distributionManagement>
+        <repository>
+          <id>github</id>
+          <name>GitHub Packages</name>
+          <url>https://maven.pkg.github.com/vlingo/xoom-platform</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+  </profiles>
 
 </project>
