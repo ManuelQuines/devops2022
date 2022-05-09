@@ -24,7 +24,7 @@ jobs:
         cache: maven
     - name: Construir Maven
       run: mvn -B package --file pom.xml
-    - name: Publicar
-      run: mvn --batch-mode deploy
+    - name: Deploy to GitHub
+      run: mvn --batch-mode -DuseGitHubPackages=true deploy
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
