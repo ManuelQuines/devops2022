@@ -22,7 +22,5 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Deploy to GitHub
-      run: mvn --batch-mode -DuseGitHubPackages=true deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Construir Maven
+      run: mvn -B package
