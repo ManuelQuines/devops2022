@@ -27,3 +27,8 @@ jobs:
         cache: maven
     - name: Construir Maven
       run: mvn -B package 
+    - name: Subir
+      uses: actions/upload-artifact@v1
+      with:
+        name: backend Devops 2022
+        path: target/ejemplo_backend-0.0.1.jar
