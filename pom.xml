@@ -72,9 +72,7 @@
 	</build>
 	
 
-  <activeProfiles>
-    <activeProfile>github</activeProfile>
-  </activeProfiles>
+
 
   <profiles>
     <profile>
